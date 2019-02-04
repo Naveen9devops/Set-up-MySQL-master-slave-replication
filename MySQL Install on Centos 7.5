@@ -1,0 +1,19 @@
+#update your system
+yum update -y
+
+#install wget to download by url's in your kernel
+yum install -y wget
+
+#add sql repositories to your kernel
+wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
+yum update -y
+
+#install mysql server
+sudo yum install mysql-server
+
+# auto start mysql-server when boot
+sudo /usr/bin/systemctl enable mysqld
+
+#start your mysql server
+sudo systemctl start mysqld
